@@ -7,8 +7,10 @@ import { useLogin } from "./useLogin";
 import SpinnerMini from "../../ui/SpinnerMini";
 
 function LoginForm() {
-  const [email, setEmail] = useState("testUser@gmail.com");
-  const [password, setPassword] = useState("test1234");
+  const [email, setEmail] = useState(import.meta.env.VITE_DEMO_EMAIL || "");
+  const [password, setPassword] = useState(
+    import.meta.env.VITE_DEMO_PASSWORD || ""
+  );
   const { login, isLoading } = useLogin();
 
   function handleSubmit(e) {
